@@ -65,6 +65,8 @@
   margin-block: var(--space-8) var(--space-16);
   background: var(--color-media-placeholder);
   color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: var(--space-2);
 }
 
 .summary,
@@ -93,8 +95,15 @@
 
 .summary p,
 .detail-grid > div:first-child > :last-child,
-.outcome-copy > p {
+.outcome-copy > :is(p, ul) {
   max-inline-size: var(--text-measure-compact);
+}
+
+.detail-grid ul,
+.outcome-copy ul {
+  display: grid;
+  padding-inline-start: var(--space-6);
+  gap: var(--space-3);
 }
 
 .detail {

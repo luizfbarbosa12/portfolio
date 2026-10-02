@@ -9,5 +9,9 @@ interface RootBodyProps {
 const fontVariables = [bodyFont.variable, labelFont.variable, handwrittenFont.variable].join(' ');
 
 export function RootBody({ children }: RootBodyProps) {
-  return <body className={fontVariables}>{children}</body>;
+  return (
+    <body className={fontVariables} suppressHydrationWarning>
+      {children}
+    </body>
+  );
 }

@@ -27,9 +27,15 @@ export function CaseLayout({ study }: CaseLayoutProps) {
               </div>
             ))}
           </dl>
-          <div className={styles.heroMedia} role="img" aria-label={study.heroLabel}>
-            {study.heroLabel}
-          </div>
+          {study.heroHref ? (
+            <a className={styles.heroMedia} href={study.heroHref}>
+              {study.heroLabel}
+            </a>
+          ) : (
+            <div className={styles.heroMedia} role="img" aria-label={study.heroLabel}>
+              {study.heroLabel}
+            </div>
+          )}
         </Container>
       </div>
       <Content />

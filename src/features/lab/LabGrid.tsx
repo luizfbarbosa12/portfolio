@@ -12,15 +12,18 @@ const experiments = [
       'The divider from the secondary logo, turned into a pluckable interaction with keyboard support and reduced motion.',
   },
   {
-    status: '[Planned]',
-    title: 'Audio-reactive canvas',
-    description: '[One of your released tracks driving a canvas visual through the Web Audio API.]',
+    status: 'Repository',
+    title: 'Signal / Form',
+    href: 'https://github.com/luizfbarbosa12/testing-webgpu',
+    description:
+      'An audio-reactive TypeScript visualizer with Web Audio frequency bands, custom GLSL, WebGPU feature detection and a WebGL fallback.',
   },
   {
-    status: '[Planned]',
-    title: 'Shader study',
+    status: 'Live experiment',
+    title: 'Flowerfields',
+    href: 'https://flowerfields1205.web.app',
     description:
-      '[A first WebGL piece, for example a paper texture that ripples under the cursor.]',
+      'A React and Canvas 2D study with deterministic flowers, Motion-driven sampling, reduced-motion support and tested rendering.',
   },
 ] as const;
 
@@ -36,7 +39,15 @@ export function LabGrid() {
           {experiments.map((experiment) => (
             <li key={experiment.title}>
               <p className={styles.status}>{experiment.status}</p>
-              <h3>{experiment.title}</h3>
+              <h3>
+                {'href' in experiment ? (
+                  <a href={experiment.href} target="_blank" rel="noreferrer">
+                    {experiment.title}
+                  </a>
+                ) : (
+                  experiment.title
+                )}
+              </h3>
               <p>{experiment.description}</p>
             </li>
           ))}

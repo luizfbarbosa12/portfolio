@@ -95,3 +95,42 @@ with a reduced-motion fallback.
 
 Lighthouse values are the median of three mobile runs per route. The interaction is isolated in a
 Client Component; the rest of the home remains server-rendered.
+
+## Phase 6: public profile content
+
+Measured on 2026-10-02 after adding the verified resume summary, public contact links, structured
+profile data and real Lab projects.
+
+| Check                      |    Home result | Case-study result |            Budget |
+| -------------------------- | -------------: | ----------------: | ----------------: |
+| Lighthouse Performance     |             99 |               100 |      95 or higher |
+| Lighthouse Accessibility   |            100 |               100 |               100 |
+| Lighthouse Best Practices  |            100 |               100 |               100 |
+| Lighthouse SEO             |            100 |               100 |               100 |
+| Largest Contentful Paint   |       1,950 ms |          1,898 ms |    Under 2,000 ms |
+| Cumulative Layout Shift    |              0 |                 0 |        Under 0.05 |
+| Total Blocking Time        |          87 ms |             40 ms |      Under 150 ms |
+| Home first-load JavaScript | 130.65 kB gzip |                 - | Under 150 kB gzip |
+
+Lighthouse values are the median of three mobile runs per route. Public identity data is shared by
+the visible contact surface and the Person JSON-LD; Spotify and private CV fields are omitted.
+
+## Phase 6: project content extension
+
+Measured on 2026-10-02 after adding the verified live-client links and replacing the cultural
+projects case-study placeholders with public project details.
+
+| Check                      |    Home result | Case-study result |            Budget |
+| -------------------------- | -------------: | ----------------: | ----------------: |
+| Lighthouse Performance     |            100 |               100 |      95 or higher |
+| Lighthouse Accessibility   |            100 |               100 |               100 |
+| Lighthouse Best Practices  |            100 |               100 |               100 |
+| Lighthouse SEO             |            100 |               100 |               100 |
+| Largest Contentful Paint   |       1,908 ms |          1,909 ms |    Under 2,000 ms |
+| Cumulative Layout Shift    |              0 |                 0 |        Under 0.05 |
+| Total Blocking Time        |          49 ms |             54 ms |      Under 150 ms |
+| Home first-load JavaScript | 130.65 kB gzip |                 - | Under 150 kB gzip |
+
+Lighthouse values are the median of three mobile runs per route. The cultural projects page
+remains statically generated and limits public content to product information suitable for the
+portfolio; operational prompts and setup instructions remain private.

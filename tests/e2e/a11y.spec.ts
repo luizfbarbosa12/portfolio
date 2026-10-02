@@ -39,6 +39,33 @@ test('the home has no detectable accessibility violations', async ({ page }) => 
   expect(results.violations).toEqual([]);
 });
 
+test('the home exposes verified public profile and project links', async ({ page }) => {
+  await page.goto('/');
+
+  const expectedLinks = [
+    ['Signal / Form', 'https://github.com/luizfbarbosa12/testing-webgpu'],
+    ['Flowerfields', 'https://flowerfields1205.web.app'],
+    ['Twila products', 'https://www.twila.com.br/produtos'],
+    ['Credicarro', 'https://www.credicarro.com.br/'],
+    ['Parcele Mais', 'https://www.parcelemais.com.br/'],
+    ['Relatório Beja 2024', 'https://relatorio2024.institutobeja.com/'],
+    ['GitHub', 'https://github.com/luizfbarbosa12'],
+    ['LinkedIn', 'https://www.linkedin.com/in/luizfbarbosa/'],
+  ] as const;
+
+  for (const [name, href] of expectedLinks) {
+    await expect(page.getByRole('link', { name })).toHaveAttribute('href', href);
+  }
+
+  await expect(page.getByText('Frontend Developer in Joinville, SC, Brazil')).toBeVisible();
+  await expect(page.getByText('Spotify')).toHaveCount(0);
+
+  const personJsonLd = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(personJsonLd).toContain('https://www.linkedin.com/in/luizfbarbosa/');
+  expect(personJsonLd).toContain('https://github.com/luizfbarbosa12');
+  expect(personJsonLd).not.toContain('spotify');
+});
+
 const caseStudies = [
   {
     slug: 'ia-para-projetos-culturais',
@@ -58,6 +85,13 @@ test('the MDX case studies have no detectable accessibility violations', async (
 
     await expect(page.getByRole('heading', { level: 1, name: study.title })).toBeVisible();
     await expect(page.getByRole('heading', { level: 2, name: 'The problem' })).toBeVisible();
+    if (study.slug === 'ia-para-projetos-culturais') {
+      await expect(page.getByRole('link', { name: /View the source/ })).toHaveAttribute(
+        'href',
+        'https://github.com/luizfbarbosa12/ProjetosCulturaisAI',
+      );
+      await expect(page.getByRole('heading', { level: 2, name: 'Current state' })).toBeVisible();
+    }
     await expect(page.getByRole('link', { name: 'Next project' })).toHaveAttribute(
       'href',
       `/work/${study.nextSlug}`,

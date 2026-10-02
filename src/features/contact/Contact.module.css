@@ -26,6 +26,18 @@
   font-size: var(--font-size-label);
 }
 
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.socials a {
+  min-block-size: var(--touch-target);
+  align-content: center;
+  text-underline-offset: var(--space-2);
+}
+
 @media (width <= 40rem) {
   .footer {
     display: grid;

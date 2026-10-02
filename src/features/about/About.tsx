@@ -1,5 +1,4 @@
 import { Container } from '@/components/ui/Container';
-import { HandNote } from '@/components/ui/HandNote';
 import { Section } from '@/components/ui/Section';
 
 import styles from './About.module.css';
@@ -15,22 +14,27 @@ export function About() {
           <div>
             <h3>At the keyboard</h3>
             <p>
-              [About six years of React, frontend and product design. Where you work now and what
-              you own there, in your words.]
-            </p>
-            <p>
-              [What you care about in an interface: timing, accessibility, the details that make it
-              feel finished.]
+              Professional with 6 years of experience in Frontend development using ReactJS, React
+              Native and NextJS, working with tools such as Context API, React Query, TypeScript,
+              Cypress and Jest. Solid experience building responsive, high-precision layouts with
+              Sass, TailwindCSS and CSS-in-JS. I have worked with Design Systems, Storybook, Chakra
+              UI, Material UI and several other libraries. I founded my own company two years ago
+              and I also bring 1 year of corporate experience as a Product Designer, with a strong
+              focus on UX/UI design.
             </p>
           </div>
           <div>
-            <h3>Off the clock</h3>
+            <h3>Education &amp; languages</h3>
             <p>
-              [A short line about being a singer, composer and cultural producer, and how it shapes
-              the way you build.]
+              Bachelor&apos;s Degree in Software Engineering at Uninter, started February 2024 and
+              currently in progress.
             </p>
-            <p>[Listen on Spotify]</p>
-            <HandNote>[a handwritten aside]</HandNote>
+            <ul className={styles.languages} aria-label="Languages">
+              <li>Portuguese (native)</li>
+              <li>English (fluent)</li>
+              <li>French (intermediate)</li>
+              <li>Spanish (intermediate)</li>
+            </ul>
           </div>
         </div>
       </Container>

@@ -42,6 +42,11 @@
   line-height: var(--line-height-heading);
 }
 
+.grid h3 a {
+  text-decoration-thickness: var(--border-thin);
+  text-underline-offset: var(--space-2);
+}
+
 .grid li > :last-child {
   max-inline-size: var(--text-measure-compact);
 }

@@ -21,7 +21,8 @@ interface CaseDetailProps extends ChildrenProps {
 
 interface CaseOutcomeProps extends ChildrenProps {
   nextSlug: string;
-  note: string;
+  note?: string;
+  title?: string;
 }
 
 export function CaseSummary({ children }: ChildrenProps) {
@@ -56,14 +57,19 @@ export function CaseDetail({ children, code, title }: CaseDetailProps) {
   );
 }
 
-export function CaseOutcome({ children, nextSlug, note }: CaseOutcomeProps) {
+export function CaseOutcome({
+  children,
+  nextSlug,
+  note,
+  title = 'What changed',
+}: CaseOutcomeProps) {
   return (
     <div className={styles.outcome}>
       <Container>
         <div className={styles.outcomeCopy}>
-          <h2>What changed</h2>
+          <h2>{title}</h2>
           {children}
-          <HandNote>{note}</HandNote>
+          {note ? <HandNote>{note}</HandNote> : null}
         </div>
         <nav className={styles.caseNavigation} aria-label="Case study navigation">
           <Link href="/#work">Back to all work</Link>

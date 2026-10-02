@@ -4,7 +4,7 @@ import { Chip } from '@/components/ui/Chip';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 
-import { projects } from './projects';
+import { liveClientWork, projects } from './projects';
 import styles from './WorkIndex.module.css';
 
 export function WorkIndex() {
@@ -37,6 +37,18 @@ export function WorkIndex() {
             </li>
           ))}
         </ol>
+        <div className={styles.liveWork}>
+          <p>Live client work</p>
+          <ul>
+            {liveClientWork.map((project) => (
+              <li key={project.href}>
+                <a href={project.href} target="_blank" rel="noreferrer">
+                  {project.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Container>
     </Section>
   );

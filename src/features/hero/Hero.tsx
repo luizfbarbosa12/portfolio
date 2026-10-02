@@ -11,7 +11,9 @@ export function Hero() {
     <section className={styles.hero} aria-labelledby="hero-title">
       <Container>
         <div className={styles.intro}>
-          <p className={styles.location}>Frontend engineer in Joinville, Brazil</p>
+          <p className={styles.location}>
+            {siteConfig.identity.title} in {siteConfig.identity.location}
+          </p>
           <p className={styles.status}>Open to work</p>
         </div>
         <h1 className={styles.title} id="hero-title">

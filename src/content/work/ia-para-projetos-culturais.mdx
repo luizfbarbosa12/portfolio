@@ -7,21 +7,39 @@ import {
 
 <CaseSummary>
   <CaseSummaryItem title="The problem">
-    [Why writing a funding proposal is hard for artists, from your own experience as a producer.]
+    Writing proposals for Brazilian cultural funding calls is expensive, complex and bureaucratic.
+    Applicants must meet strict documentation requirements, keep multiple sections narratively
+    consistent, respect budget limits, manage team records and anticipate evaluator expectations
+    while producing the cultural work itself.
   </CaseSummaryItem>
 
   <CaseSummaryItem title="What I built">
-    [The core flow, the decisions behind it, and what you would show a hiring engineer first.]
+    A web platform that helps cultural producers write and manage proposals for incentive programs.
+    Each project has a structured workspace tied to a specific funding call, reducing cost and
+    bureaucracy while making the application requirements easier to understand.
   </CaseSummaryItem>
 </CaseSummary>
 
 <CaseDetail
-  title="[One detail worth zooming into]"
-  code="[Embedded live component or code excerpt]"
+  title="From funding call to structured workspace"
+  code="PDF -> criteria -> checklist -> project sections"
 >
-  [A component, an animation or an accessibility fix, with the reasoning and a short code excerpt.]
+  The uploaded funding-call PDF becomes evaluation criteria, required-document checklists, budget
+  rules and a recommended project structure. The workspace connects writing assistance with team,
+  budget and timeline management, while consistency checks surface conflicts across sections.
+
+  <ul>
+    <li>Section-level AI feedback and scoring across seven evaluation dimensions</li>
+    <li>Budget validation connected to individual and company team profiles</li>
+    <li>A Gantt-style timeline linked to budget phases and team allocation</li>
+    <li>Coherence, evaluator, diversity and inclusion analysis</li>
+    <li>Reusable team records and automatic document generation</li>
+  </ul>
 </CaseDetail>
 
-<CaseOutcome note="[a handwritten aside]" nextSlug="this-portfolio">
-  [Results you can stand behind, with period and source. Leave out any number you cannot back up.]
+<CaseOutcome title="Current state" nextSlug="this-portfolio">
+  The API is the default source for persisted projects. Funding calls, criteria, sections,
+  checklists and teams have backend implementations; budget and timeline still use local state.
+  Scoring, coherence analysis, evaluator simulation and document generation remain demonstrative
+  experiences while persistent end-to-end validation is still pending.
 </CaseOutcome>
