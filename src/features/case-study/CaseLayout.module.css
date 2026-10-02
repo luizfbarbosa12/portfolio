@@ -1,8 +1,21 @@
 .intro,
+.summary-band,
 .outcome {
-  padding-block: var(--space-section);
   background: var(--color-sea);
   color: var(--color-paper);
+}
+
+.intro,
+.outcome {
+  padding-block: var(--space-section);
+}
+
+.intro {
+  padding-block-end: 0;
+}
+
+.summary-band {
+  padding-block-end: var(--space-section);
 }
 
 .eyebrow,

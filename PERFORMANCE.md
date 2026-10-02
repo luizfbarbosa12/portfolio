@@ -57,3 +57,22 @@ template.
 
 Lighthouse values are the median of three mobile runs per route. The home and case-study pages are
 Server Components, and both public case studies are generated statically.
+
+## Phase 4: MDX case studies
+
+Measured on 2026-10-02 after moving the narrative content for both public case studies into local
+MDX documents while preserving static generation.
+
+| Check                      |    Home result | Case-study result |            Budget |
+| -------------------------- | -------------: | ----------------: | ----------------: |
+| Lighthouse Performance     |            100 |               100 |      95 or higher |
+| Lighthouse Accessibility   |            100 |               100 |               100 |
+| Lighthouse Best Practices  |            100 |               100 |               100 |
+| Lighthouse SEO             |            100 |               100 |               100 |
+| Largest Contentful Paint   |       1,897 ms |          1,900 ms |    Under 2,000 ms |
+| Cumulative Layout Shift    |              0 |                 0 |        Under 0.05 |
+| Total Blocking Time        |          40 ms |             44 ms |      Under 150 ms |
+| Home first-load JavaScript | 130.62 kB gzip |                 - | Under 150 kB gzip |
+
+Lighthouse values are the median of three mobile runs per route. Both MDX documents compile as
+Server Components and remain prerendered through `generateStaticParams`.

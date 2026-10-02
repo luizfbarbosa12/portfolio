@@ -28,14 +28,32 @@ test('the home has no detectable accessibility violations', async ({ page }) => 
   expect(results.violations).toEqual([]);
 });
 
-test('a case study has no detectable accessibility violations', async ({ page }) => {
-  await page.goto('/work/ia-para-projetos-culturais');
+const caseStudies = [
+  {
+    slug: 'ia-para-projetos-culturais',
+    title: 'IA para Projetos Culturais',
+    nextSlug: 'this-portfolio',
+  },
+  {
+    slug: 'this-portfolio',
+    title: 'This portfolio',
+    nextSlug: 'ia-para-projetos-culturais',
+  },
+] as const;
 
-  await expect(
-    page.getByRole('heading', { level: 1, name: 'IA para Projetos Culturais' }),
-  ).toBeVisible();
+test('the MDX case studies have no detectable accessibility violations', async ({ page }) => {
+  for (const study of caseStudies) {
+    await page.goto(`/work/${study.slug}`);
 
-  const results = await new AxeBuilder({ page }).analyze();
+    await expect(page.getByRole('heading', { level: 1, name: study.title })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'The problem' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Next project' })).toHaveAttribute(
+      'href',
+      `/work/${study.nextSlug}`,
+    );
 
-  expect(results.violations).toEqual([]);
+    const results = await new AxeBuilder({ page }).analyze();
+
+    expect(results.violations).toEqual([]);
+  }
 });
