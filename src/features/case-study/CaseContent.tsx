@@ -27,7 +27,7 @@ interface CaseOutcomeProps extends ChildrenProps {
 
 export function CaseSummary({ children }: ChildrenProps) {
   return (
-    <div className={styles.summaryBand}>
+    <div className={styles['summary-band']}>
       <Container className={styles.summary}>{children}</Container>
     </div>
   );
@@ -45,13 +45,13 @@ export function CaseSummaryItem({ children, title }: CaseSummaryItemProps) {
 export function CaseDetail({ children, code, title }: CaseDetailProps) {
   return (
     <div className={styles.detail}>
-      <Container className={styles.detailGrid}>
+      <Container className={styles['detail-grid']}>
         <div>
-          <p className={styles.detailLabel}>Interaction detail</p>
+          <p className={styles['detail-label']}>Interaction detail</p>
           <h2>{title}</h2>
           {children}
         </div>
-        <div className={styles.codePlaceholder}>{code}</div>
+        <div className={styles['code-placeholder']}>{code}</div>
       </Container>
     </div>
   );
@@ -66,12 +66,12 @@ export function CaseOutcome({
   return (
     <div className={styles.outcome}>
       <Container>
-        <div className={styles.outcomeCopy}>
+        <div className={styles['outcome-copy']}>
           <h2>{title}</h2>
           {children}
           {note ? <HandNote>{note}</HandNote> : null}
         </div>
-        <nav className={styles.caseNavigation} aria-label="Case study navigation">
+        <nav className={styles['case-navigation']} aria-label="Case study navigation">
           <Link href="/#work">Back to all work</Link>
           <Link href={`/work/${nextSlug}`}>Next project</Link>
         </nav>

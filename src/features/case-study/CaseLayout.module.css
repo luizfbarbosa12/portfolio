@@ -11,7 +11,24 @@
 }
 
 .intro {
+  position: relative;
+  overflow: hidden;
   padding-block-end: 0;
+}
+
+.intro > div {
+  position: relative;
+  z-index: 1;
+}
+
+.ornament {
+  position: absolute;
+  inset-block-start: 8%;
+  inset-inline-end: clamp(-12rem, -7vw, -4rem);
+  inline-size: clamp(18rem, 30vw, 30rem);
+  block-size: auto;
+  opacity: 0.12;
+  rotate: 11deg;
 }
 
 .summary-band {
@@ -62,11 +79,17 @@
 
 .hero-media {
   aspect-ratio: var(--case-media-ratio);
+  overflow: hidden;
   margin-block: var(--space-8) var(--space-16);
   background: var(--color-media-placeholder);
   color: var(--color-muted);
-  text-decoration: underline;
-  text-underline-offset: var(--space-2);
+}
+
+.hero-media :is(img, video) {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
 }
 
 .summary,
@@ -142,6 +165,12 @@
 }
 
 @media (width <= 48rem) {
+  .ornament {
+    inset-block-start: 18%;
+    inset-inline-end: -12rem;
+    opacity: 0.09;
+  }
+
   .metadata,
   .summary,
   .detail-grid {

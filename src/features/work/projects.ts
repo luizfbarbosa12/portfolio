@@ -1,10 +1,18 @@
+import type { StaticImageData } from 'next/image';
+
+import culturalProjectsScreenshot from '@/imgs/Screenshot 2026-10-02 175926.png';
+
+type ProjectMedia =
+  | { alt: string; kind: 'image'; src: StaticImageData }
+  | { label: string; kind: 'video'; src: string };
+
 export interface ProjectSummary {
   number: string;
   slug: string;
   title: string;
   description: string;
   stack: readonly string[];
-  mediaLabel: string;
+  media: ProjectMedia;
 }
 
 export const projects: readonly ProjectSummary[] = [
@@ -15,15 +23,24 @@ export const projects: readonly ProjectSummary[] = [
     description:
       'A structured workspace that helps cultural producers write and manage proposals for Brazilian funding calls.',
     stack: ['React', 'TypeScript', 'Product design'],
-    mediaLabel: 'Funding-call workspace with sections, score analysis, budget and team management',
+    media: {
+      kind: 'image',
+      src: culturalProjectsScreenshot,
+      alt: 'Cultural project workspace showing evaluation criteria, score analysis and budget progress',
+    },
   },
   {
     number: '02',
-    slug: 'this-portfolio',
-    title: 'This portfolio',
-    description: '[How it was designed and built, from brand tokens to the string interaction.]',
-    stack: ['Next.js', 'GSAP', 'Design tokens'],
-    mediaLabel: '[Process frames: tokens, prototype, final]',
+    slug: 'instituto-beja-2024',
+    title: 'Instituto Beja 2024',
+    description:
+      'A bilingual digital annual report that turns the institute’s work, partnerships and impact into an editorial web experience.',
+    stack: ['React', 'GSAP', 'i18next'],
+    media: {
+      kind: 'video',
+      src: '/work/instituto-beja-2024.mp4',
+      label: 'Preview of the Instituto Beja 2024 digital annual report',
+    },
   },
 ];
 
@@ -31,7 +48,6 @@ export const liveClientWork = [
   { title: 'Twila products', href: 'https://www.twila.com.br/produtos' },
   { title: 'Credicarro', href: 'https://www.credicarro.com.br/' },
   { title: 'Parcele Mais', href: 'https://www.parcelemais.com.br/' },
-  { title: 'Relatório Beja 2024', href: 'https://relatorio2024.institutobeja.com/' },
 ] as const;
 
 export function getProjectBySlug(slug: string) {

@@ -21,7 +21,14 @@
 }
 
 .brand {
-  font-family: var(--font-section) !important;
-  font-size: 1.25rem !important;
+  display: grid;
+  inline-size: clamp(8.25rem, 12vw, 10.5rem);
+  align-items: center;
   text-decoration: none;
+}
+
+.brand img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { BrandLogo } from '@/components/layout/BrandLogo';
 import { Container } from '@/components/ui/Container';
 
 import styles from './Header.module.css';
@@ -16,7 +17,7 @@ export function Header() {
     <header className={styles.header}>
       <Container className={styles.inner}>
         <Link className={styles.brand} href="/" aria-label="Luiz Barbosa, home">
-          Luiz Barbosa
+          <BrandLogo />
         </Link>
         <nav aria-label="Primary navigation">
           <ul className={styles.navigation}>

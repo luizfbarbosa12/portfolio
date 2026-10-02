@@ -15,9 +15,17 @@
 }
 
 .brand {
-  font-family: var(--font-section);
-  font-size: 1.25rem;
+  display: grid;
+  inline-size: clamp(8.25rem, 12vw, 10.5rem);
+  min-block-size: var(--touch-target);
+  align-items: center;
   text-decoration: none;
+}
+
+.brand img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
 }
 
 .navigation {

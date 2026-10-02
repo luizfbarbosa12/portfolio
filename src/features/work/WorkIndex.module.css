@@ -1,4 +1,19 @@
+.container {
+  position: relative;
+}
+
+.ornament {
+  position: absolute;
+  inset-block-start: clamp(-6rem, -8vw, -3rem);
+  inset-inline-end: clamp(1rem, 5vw, 5rem);
+  inline-size: clamp(4.5rem, 8vw, 7rem);
+  block-size: auto;
+  rotate: 8deg;
+}
+
 .heading {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -70,22 +85,19 @@
 }
 
 .media {
-  display: grid;
   min-inline-size: 0;
   aspect-ratio: var(--media-ratio);
+  overflow: hidden;
   border: var(--border-thin) solid var(--color-line);
   border-radius: var(--radius-md);
   background: var(--color-media-placeholder);
-  color: var(--color-muted);
-  place-items: center;
 }
 
-.media span {
-  max-inline-size: var(--text-measure-compact);
-  padding: var(--space-6);
-  font-family: var(--font-label);
-  font-size: var(--font-size-label);
-  text-align: center;
+.media :is(img, video) {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
 }
 
 .live-work {
@@ -118,6 +130,12 @@
 }
 
 @media (width <= 48rem) {
+  .ornament {
+    inset-block-start: -4.5rem;
+    inset-inline-end: 1rem;
+    inline-size: 4.5rem;
+  }
+
   .project {
     grid-template-columns: 1fr;
     gap: var(--space-8);

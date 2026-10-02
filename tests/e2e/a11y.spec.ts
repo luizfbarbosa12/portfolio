@@ -48,7 +48,6 @@ test('the home exposes verified public profile and project links', async ({ page
     ['Twila products', 'https://www.twila.com.br/produtos'],
     ['Credicarro', 'https://www.credicarro.com.br/'],
     ['Parcele Mais', 'https://www.parcelemais.com.br/'],
-    ['Relatório Beja 2024', 'https://relatorio2024.institutobeja.com/'],
     ['GitHub', 'https://github.com/luizfbarbosa12'],
     ['LinkedIn', 'https://www.linkedin.com/in/luizfbarbosa/'],
   ] as const;
@@ -70,11 +69,11 @@ const caseStudies = [
   {
     slug: 'ia-para-projetos-culturais',
     title: 'IA para Projetos Culturais',
-    nextSlug: 'this-portfolio',
+    nextSlug: 'instituto-beja-2024',
   },
   {
-    slug: 'this-portfolio',
-    title: 'This portfolio',
+    slug: 'instituto-beja-2024',
+    title: 'Instituto Beja 2024',
     nextSlug: 'ia-para-projetos-culturais',
   },
 ] as const;
@@ -91,6 +90,13 @@ test('the MDX case studies have no detectable accessibility violations', async (
         'https://github.com/luizfbarbosa12/ProjetosCulturaisAI',
       );
       await expect(page.getByRole('heading', { level: 2, name: 'Current state' })).toBeVisible();
+    } else {
+      await expect(
+        page.getByRole('link', { name: 'Visit the Instituto Beja 2024 report' }),
+      ).toHaveAttribute('href', 'https://relatorio2024.institutobeja.com/');
+      await expect(
+        page.getByLabel('Preview of the Instituto Beja 2024 digital annual report'),
+      ).toHaveAttribute('preload', 'none');
     }
     await expect(page.getByRole('link', { name: 'Next project' })).toHaveAttribute(
       'href',
