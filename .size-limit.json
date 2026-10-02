@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Home first-load JavaScript",
+    "path": ".next/size-limit/*.js",
+    "limit": "150 kB",
+    "gzip": true
+  }
+]
