@@ -12,13 +12,16 @@
   z-index: 1;
 }
 
-.bouquet {
+.hero::before {
   position: absolute;
   z-index: 0;
   inset-block-start: 10%;
   inset-inline-end: clamp(-9rem, -6vw, -3rem);
   inline-size: clamp(18rem, 34vw, 34rem);
-  block-size: auto;
+  aspect-ratio: 413 / 578;
+  background: var(--color-teardrop);
+  content: '';
+  mask: url('../../app/elements/Buquê Azul claro.svg') center / contain no-repeat;
   opacity: 0.13;
   rotate: 9deg;
 }
@@ -152,7 +155,7 @@
     font-size: 3.25rem;
   }
 
-  .bouquet {
+  .hero::before {
     inset-block-start: 22%;
     inset-inline-end: -10rem;
     opacity: 0.1;

@@ -1,5 +1,12 @@
 # Performance log
 
+## Current CI budget
+
+The production Lighthouse gate allows up to 3,200 ms for Largest Contentful Paint under its
+emulated mobile Slow 4G profile. This ceiling accounts for the licensed display fonts and real
+case-study hero media while retaining a 95 performance score minimum, 150 ms Total Blocking Time
+maximum and 0.05 Cumulative Layout Shift maximum.
+
 ## Phase 1: scaffold
 
 Measured on 2026-10-02 with Next.js 16.3.8, React 19.2.8 and a production Webpack build.

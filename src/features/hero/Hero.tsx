@@ -1,6 +1,3 @@
-import Image, { type StaticImageData } from 'next/image';
-
-import bouquet from '@/app/elements/Buquê Azul claro.svg';
 import { Container } from '@/components/ui/Container';
 import { siteConfig } from '@/config/site';
 
@@ -12,14 +9,6 @@ const stack = ['React', 'TypeScript', 'Next.js', 'Motion', 'GSAP', 'Product desi
 export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
-      <Image
-        className={styles.bouquet}
-        src={bouquet as StaticImageData}
-        alt=""
-        width={413}
-        height={578}
-        aria-hidden
-      />
       <Container>
         <div className={styles.intro}>
           <p className={styles.location}>

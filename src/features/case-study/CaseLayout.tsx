@@ -1,6 +1,5 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 
-import bouquet from '@/app/elements/Buquê Azul claro.svg';
 import { Container } from '@/components/ui/Container';
 
 import styles from './CaseLayout.module.css';
@@ -19,15 +18,6 @@ export function CaseLayout({ study }: CaseLayoutProps) {
   return (
     <main id="main-content">
       <div className={styles.intro}>
-        <Image
-          className={styles.ornament}
-          src={bouquet as StaticImageData}
-          alt=""
-          width={413}
-          height={578}
-          aria-hidden
-          priority
-        />
         <Container>
           <p className={styles.eyebrow}>Case study {study.number}</p>
           <h1>{study.title}</h1>
@@ -51,7 +41,8 @@ export function CaseLayout({ study }: CaseLayoutProps) {
                 width={1894}
                 height={948}
                 sizes="(max-width: 1200px) 100vw, 1200px"
-                priority
+                decoding="sync"
+                preload
               />
             </a>
           ) : (
