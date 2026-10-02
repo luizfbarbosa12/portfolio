@@ -1,0 +1,7 @@
+.note {
+  color: var(--color-note);
+  font-family: var(--font-handwritten);
+  font-size: var(--font-size-note);
+  line-height: var(--line-height-heading);
+  rotate: -2deg;
+}

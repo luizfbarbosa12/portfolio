@@ -1,0 +1,36 @@
+.title {
+  font-family: var(--font-section);
+  font-size: var(--font-size-section);
+  font-weight: 400;
+  line-height: var(--line-height-heading);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-block-start: var(--space-12);
+  gap: var(--space-16);
+}
+
+.columns > div {
+  display: grid;
+  align-content: start;
+  gap: var(--space-6);
+}
+
+.columns h3 {
+  color: var(--color-muted);
+  font-family: var(--font-label);
+  font-size: var(--font-size-label);
+  font-weight: 400;
+}
+
+.columns p {
+  max-inline-size: var(--text-measure-compact);
+}
+
+@media (width <= 48rem) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+.section {
+  padding-block: var(--space-section);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  scroll-margin-block-start: var(--header-offset);
+}
+
+.alt {
+  background: var(--color-alt-background);
+  color: var(--color-alt-foreground);
+}
+
+.wine {
+  background: var(--color-wine);
+  color: var(--color-paper);
+}

@@ -12,8 +12,13 @@
   --font-label: var(--font-jetbrains-mono), monospace;
   --font-size-label: 0.75rem;
   --font-size-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --font-size-card-title: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  --font-size-project: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  --font-size-case-title: clamp(4rem, 10vw, 9rem);
   --font-size-section: clamp(2.75rem, 2rem + 3vw, 5.5rem);
   --font-size-display: clamp(5.5rem, 16vw, 14.5rem);
+  --font-size-note: clamp(1.75rem, 3vw, 2.75rem);
+  --font-size-contact-link: clamp(1.25rem, 1rem + 1vw, 2rem);
   --line-height-display: 0.86;
   --line-height-heading: 1;
   --line-height-body: 1.65;
@@ -30,10 +35,25 @@
   --space-page-inline: clamp(1.25rem, 5vw, 5rem);
   --content-max: 90rem;
   --text-max: 70ch;
+  --text-measure-compact: 44ch;
   --section-preview-min: 50svh;
+  --header-offset: 6rem;
+  --touch-target: 2.75rem;
+  --touch-target-compact: 2rem;
+  --lab-item-min: 17rem;
+  --media-ratio: 16 / 9;
+  --case-media-ratio: 12 / 5;
+  --case-code-min: 24rem;
+  --case-outcome-min: 48rem;
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --border-thin: 1px;
+  --string-width-1: 3px;
+  --string-width-2: 2.6px;
+  --string-width-3: 2.2px;
+  --string-width-4: 1.8px;
+  --string-width-5: 1.4px;
+  --string-width-6: 1px;
   --focus-width: 2px;
   --focus-offset: 2px;
   --dur-fast: 150ms;
@@ -53,6 +73,8 @@
   --color-focus: var(--color-teardrop);
   --color-alt-background: var(--color-paper);
   --color-alt-foreground: var(--color-graphite);
+  --color-note: var(--color-paper);
+  --color-media-placeholder: var(--color-sea);
 }
 
 [data-theme='light'] {
@@ -65,4 +87,6 @@
   --color-focus: var(--color-rose);
   --color-alt-background: var(--color-sea);
   --color-alt-foreground: var(--color-paper);
+  --color-note: var(--color-rose);
+  --color-media-placeholder: var(--color-paper);
 }

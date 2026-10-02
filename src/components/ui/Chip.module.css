@@ -1,0 +1,10 @@
+.chip {
+  display: inline-flex;
+  min-block-size: var(--touch-target-compact);
+  align-items: center;
+  padding-inline: var(--space-3);
+  border: var(--border-thin) solid currentcolor;
+  border-radius: var(--radius-md);
+  font-family: var(--font-label);
+  font-size: var(--font-size-label);
+}

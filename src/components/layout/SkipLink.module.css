@@ -1,0 +1,16 @@
+.link {
+  position: fixed;
+  z-index: 10;
+  inset-block-start: var(--space-3);
+  inset-inline-start: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-paper);
+  color: var(--color-sea);
+  font-family: var(--font-label);
+  font-size: var(--font-size-label);
+  translate: 0 calc(-100% - var(--space-6));
+}
+
+.link:focus {
+  translate: 0;
+}

@@ -1,0 +1,27 @@
+.header {
+  padding-block: var(--space-6);
+  background: var(--color-sea);
+  color: var(--color-paper);
+}
+
+.inner {
+  display: flex;
+  min-block-size: var(--touch-target);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.inner a {
+  align-content: center;
+  min-block-size: var(--touch-target);
+  font-family: var(--font-label);
+  font-size: var(--font-size-label);
+  text-underline-offset: var(--space-2);
+}
+
+.brand {
+  font-family: var(--font-section) !important;
+  font-size: 1.25rem !important;
+  text-decoration: none;
+}

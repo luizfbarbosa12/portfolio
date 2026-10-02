@@ -38,3 +38,22 @@ Measured on 2026-10-02 after adding both theme palettes, the font stand-ins and 
 Lighthouse values are the median of three mobile runs. Hanken Grotesk, JetBrains Mono and La Belle
 Aurore are temporary stand-ins. Aujournuit web embedding is licensed, but its files are not yet in
 the repository. Aquavit and P22 Da Vinci remain blocked on the Adobe Fonts kit ID.
+
+## Phase 3: static portfolio
+
+Measured on 2026-10-02 after implementing the complete static home page and the public case-study
+template.
+
+| Check                      |    Home result | Case-study result |            Budget |
+| -------------------------- | -------------: | ----------------: | ----------------: |
+| Lighthouse Performance     |             99 |                99 |      95 or higher |
+| Lighthouse Accessibility   |            100 |               100 |               100 |
+| Lighthouse Best Practices  |            100 |               100 |               100 |
+| Lighthouse SEO             |            100 |               100 |               100 |
+| Largest Contentful Paint   |       1,935 ms |          1,967 ms |    Under 2,000 ms |
+| Cumulative Layout Shift    |              0 |                 0 |        Under 0.05 |
+| Total Blocking Time        |          75 ms |             66 ms |      Under 150 ms |
+| Home first-load JavaScript | 130.62 kB gzip |                 - | Under 150 kB gzip |
+
+Lighthouse values are the median of three mobile runs per route. The home and case-study pages are
+Server Components, and both public case studies are generated statically.
