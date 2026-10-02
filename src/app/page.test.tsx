@@ -34,7 +34,13 @@ describe('Home', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByLabelText('Preview of the Instituto Beja 2024 digital annual report'),
-    ).toHaveAttribute('preload', 'none');
+    ).toHaveProperty('muted', true);
+    expect(
+      screen.getByLabelText('Preview of the Instituto Beja 2024 digital annual report'),
+    ).toHaveAttribute('autoplay');
+    expect(
+      screen.getByLabelText('Preview of the Instituto Beja 2024 digital annual report'),
+    ).not.toHaveAttribute('controls');
     expect(screen.getByRole('heading', { level: 2, name: 'About' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: "Let's talk" })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute(

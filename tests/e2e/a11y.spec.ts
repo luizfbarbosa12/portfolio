@@ -27,12 +27,31 @@ test('the home has no detectable accessibility violations', async ({ page }) => 
       new Set(
         performance
           .getEntriesByType('resource')
-          .filter((entry) => entry.name.endsWith('.woff2'))
+          .filter((entry) => /\.(?:woff2?|otf|ttf)(?:\?|$)/u.test(entry.name))
           .map((entry) => entry.name),
       ).size,
   );
 
   expect(loadedFonts).toBeLessThanOrEqual(4);
+
+  const fontFamilies = await page.evaluate(() => {
+    const readFamily = (selector: string) => {
+      const element = document.querySelector(selector);
+      return element ? getComputedStyle(element).fontFamily : '';
+    };
+
+    return {
+      body: getComputedStyle(document.body).fontFamily,
+      display: readFamily('h1'),
+      handwritten: readFamily('p[class*="note"]'),
+      label: readFamily('header nav'),
+    };
+  });
+
+  expect(fontFamilies.body).toContain('bodyFont');
+  expect(fontFamilies.display).toContain('displayFont');
+  expect(fontFamilies.handwritten).toContain('handwrittenFont');
+  expect(fontFamilies.label).toContain('bodyFont');
 
   const results = await new AxeBuilder({ page }).analyze();
 
@@ -89,6 +108,12 @@ test('the MDX case studies have no detectable accessibility violations', async (
         'href',
         'https://github.com/luizfbarbosa12/ProjetosCulturaisAI',
       );
+      const gallery = page.getByLabel('Cultural projects workspace screens');
+      await expect(gallery).toBeVisible();
+      await expect(gallery.getByRole('figure')).toHaveCount(3);
+      await expect(page.getByText('PDF -> criteria -> checklist -> project sections')).toHaveCount(
+        0,
+      );
       await expect(page.getByRole('heading', { level: 2, name: 'Current state' })).toBeVisible();
     } else {
       await expect(
@@ -96,7 +121,13 @@ test('the MDX case studies have no detectable accessibility violations', async (
       ).toHaveAttribute('href', 'https://relatorio2024.institutobeja.com/');
       await expect(
         page.getByLabel('Preview of the Instituto Beja 2024 digital annual report'),
-      ).toHaveAttribute('preload', 'none');
+      ).toHaveAttribute('autoplay', '');
+      await expect(
+        page.getByLabel('Preview of the Instituto Beja 2024 digital annual report'),
+      ).toHaveJSProperty('muted', true);
+      await expect(
+        page.getByLabel('Preview of the Instituto Beja 2024 digital annual report'),
+      ).not.toHaveAttribute('controls');
     }
     await expect(page.getByRole('link', { name: 'Next project' })).toHaveAttribute(
       'href',

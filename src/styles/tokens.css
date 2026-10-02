@@ -5,11 +5,11 @@
   --color-graphite: #1c1c1c;
   --color-wine: #780000;
   --color-rose: #c1121f;
-  --font-display: 'Aujournuit', georgia, serif;
-  --font-section: 'Aujournuit', georgia, serif;
-  --font-body: var(--font-hanken-grotesk), sans-serif;
-  --font-handwritten: var(--font-la-belle-aurore), cursive;
-  --font-label: var(--font-jetbrains-mono), monospace;
+  --font-display: var(--font-aujournuit), serif;
+  --font-section: var(--font-aujournuit), serif;
+  --font-body: var(--font-aquavit), sans-serif;
+  --font-handwritten: var(--font-da-vinci), cursive;
+  --font-label: var(--font-aquavit), sans-serif;
   --font-size-label: clamp(0.875rem, 0.84rem + 0.12vw, 1rem);
   --font-size-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
   --font-size-card-title: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);

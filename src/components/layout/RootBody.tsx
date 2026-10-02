@@ -1,16 +1,15 @@
 import type { ReactNode } from 'react';
 
-import { bodyFont, handwrittenFont, labelFont } from '@/styles/fonts';
+import { ExperienceEnhancements } from '@/components/layout/ExperienceEnhancements';
 
 interface RootBodyProps {
   children: ReactNode;
 }
 
-const fontVariables = [bodyFont.variable, labelFont.variable, handwrittenFont.variable].join(' ');
-
 export function RootBody({ children }: RootBodyProps) {
   return (
-    <body className={fontVariables} suppressHydrationWarning>
+    <body suppressHydrationWarning>
+      <ExperienceEnhancements />
       {children}
     </body>
   );

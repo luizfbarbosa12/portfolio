@@ -3,6 +3,7 @@ import {
   CaseOutcome,
   CaseSummary,
   CaseSummaryItem,
+  CulturalProjectsGallery,
 } from '@/features/case-study/CaseContent';
 
 <CaseSummary>
@@ -22,7 +23,7 @@ import {
 
 <CaseDetail
   title="From funding call to structured workspace"
-  code="PDF -> criteria -> checklist -> project sections"
+  visual={<CulturalProjectsGallery />}
 >
   The uploaded funding-call PDF becomes evaluation criteria, required-document checklists, budget
   rules and a recommended project structure. The workspace connects writing assistance with team,

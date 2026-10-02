@@ -1,25 +1,38 @@
-import { Hanken_Grotesk, JetBrains_Mono, La_Belle_Aurore } from 'next/font/google';
+import localFont from 'next/font/local';
 
-export const bodyFont = Hanken_Grotesk({
+export const displayFont = localFont({
+  src: '../../public/fonts/Aujournuit-VariableVF.ttf',
   display: 'swap',
-  preload: false,
-  subsets: ['latin'],
-  variable: '--font-hanken-grotesk',
-  weight: ['300', '400'],
+  variable: '--font-aujournuit',
+  weight: '100 900',
 });
 
-export const labelFont = JetBrains_Mono({
+export const bodyFont = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Aquavit Light.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Aquavit Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
-  preload: false,
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-aquavit',
+});
+
+export const handwrittenFont = localFont({
+  src: '../../public/fonts/Da Vinci.otf',
+  display: 'swap',
+  variable: '--font-da-vinci',
   weight: '400',
 });
 
-export const handwrittenFont = La_Belle_Aurore({
-  display: 'swap',
-  preload: false,
-  subsets: ['latin'],
-  variable: '--font-la-belle-aurore',
-  weight: '400',
-});
+export const fontVariables = [
+  bodyFont.variable,
+  displayFont.variable,
+  handwrittenFont.variable,
+].join(' ');

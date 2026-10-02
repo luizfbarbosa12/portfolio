@@ -1,12 +1,14 @@
 import '@/styles/tokens.css';
 import '@/styles/reset.css';
 import '@/styles/globals.css';
+import 'lenis/dist/lenis.css';
 
 import type { Metadata } from 'next';
 
 import { RootBody } from '@/components/layout/RootBody';
 import { ThemeScript } from '@/components/layout/ThemeScript';
 import { siteConfig } from '@/config/site';
+import { fontVariables } from '@/styles/fonts';
 
 const description =
   'Professional with 6 years of experience in Frontend development using ReactJS, React Native and NextJS, working with tools such as Context API, React Query, TypeScript, Cypress and Jest.';
@@ -36,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang={siteConfig.locale}
-      data-label-font={siteConfig.labels.font}
+      className={fontVariables}
       data-theme={siteConfig.theme.default}
       suppressHydrationWarning
     >

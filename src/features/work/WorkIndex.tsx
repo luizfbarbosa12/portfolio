@@ -21,7 +21,7 @@ function ProjectMedia({ media }: { media: (typeof projects)[number]['media'] }) 
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       ) : (
-        <video aria-label={media.label} controls playsInline preload="none">
+        <video aria-label={media.label} autoPlay loop muted playsInline preload="auto">
           <source src={media.src} type="video/mp4" />
           Your browser does not support HTML video.
         </video>

@@ -35,9 +35,9 @@ Measured on 2026-10-02 after adding both theme palettes, the font stand-ins and 
 | Home first-load JavaScript | 130.62 kB gzip | Under 150 kB gzip |
 | Font files loaded          |              3 |        4 or fewer |
 
-Lighthouse values are the median of three mobile runs. Hanken Grotesk, JetBrains Mono and La Belle
-Aurore are temporary stand-ins. Aujournuit web embedding is licensed, but its files are not yet in
-the repository. Aquavit and P22 Da Vinci remain blocked on the Adobe Fonts kit ID.
+Lighthouse values are the median of three mobile runs. The current build self-hosts Aujournuit
+Variable, Aquavit Light and Regular, and Da Vinci through `next/font/local`. The measurements above
+predate that font update and should be refreshed with the next Lighthouse baseline.
 
 ## Phase 3: static portfolio
 

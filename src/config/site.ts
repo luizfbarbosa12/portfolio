@@ -1,5 +1,4 @@
 export type Theme = 'dark' | 'light';
-export type LabelFont = 'body' | 'jetbrains-mono' | 'geist-mono';
 
 interface SiteConfig {
   locale: 'en';
@@ -15,18 +14,11 @@ interface SiteConfig {
     default: Theme;
     allowToggle: boolean;
   };
-  labels: {
-    font: LabelFont;
-  };
   notes: {
     enabled: boolean;
   };
   motion: {
     strings: boolean;
-  };
-  fonts: {
-    aujournuitWebEmbeddingLicensed: boolean;
-    adobeKitId: string | null;
   };
 }
 
@@ -45,18 +37,10 @@ export const siteConfig: SiteConfig = {
     default: 'dark',
     allowToggle: false,
   },
-  labels: {
-    // Approved options: body, jetbrains-mono or geist-mono.
-    font: 'jetbrains-mono',
-  },
   notes: {
     enabled: true,
   },
   motion: {
     strings: true,
-  },
-  fonts: {
-    aujournuitWebEmbeddingLicensed: true,
-    adobeKitId: null,
   },
 };

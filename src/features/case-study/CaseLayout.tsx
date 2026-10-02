@@ -56,7 +56,7 @@ export function CaseLayout({ study }: CaseLayoutProps) {
             </a>
           ) : (
             <div className={styles['hero-media']}>
-              <video aria-label={study.media.label} controls playsInline preload="none">
+              <video aria-label={study.media.label} autoPlay loop muted playsInline preload="auto">
                 <source src={study.media.src} type="video/mp4" />
                 Your browser does not support HTML video.
               </video>
