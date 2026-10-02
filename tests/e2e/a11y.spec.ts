@@ -11,6 +11,17 @@ test('the home has no detectable accessibility violations', async ({ page }) => 
   await expect(page.locator('#about')).toHaveCount(1);
   await expect(page.locator('#contact')).toHaveCount(1);
 
+  const strings = page.getByRole('figure', { name: 'Six guitar strings' }).getByRole('button');
+  await expect(strings).toHaveCount(6);
+  await strings.first().focus();
+  await page.keyboard.press('Enter');
+  await expect(strings.first()).toBeFocused();
+
+  const smallestTarget = await strings.evaluateAll((buttons) =>
+    Math.min(...buttons.map((button) => button.getBoundingClientRect().height)),
+  );
+  expect(smallestTarget).toBeGreaterThanOrEqual(44);
+
   const loadedFonts = await page.evaluate(
     () =>
       new Set(

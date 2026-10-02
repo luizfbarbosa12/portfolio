@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { siteConfig } from '@/config/site';
 
+import { GuitarStrings } from './GuitarStrings';
 import styles from './Hero.module.css';
 
 const stack = ['React', 'TypeScript', 'Next.js', 'Motion', 'GSAP', 'Product design'] as const;
@@ -20,11 +21,7 @@ export function Hero() {
           <p>[One line on what you build]</p>
           {siteConfig.notes.enabled ? <p className={styles.note}>pluck the strings</p> : null}
         </div>
-        <figure className={styles.strings} aria-label="Six guitar strings">
-          {['low-e', 'a', 'd', 'g', 'b', 'high-e'].map((string) => (
-            <span key={string} aria-hidden="true" />
-          ))}
-        </figure>
+        <GuitarStrings interactive={siteConfig.motion.strings} />
         <ul className={styles.stack} aria-label="Core skills">
           {stack.map((item) => (
             <li key={item}>{item}</li>

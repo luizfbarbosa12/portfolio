@@ -58,36 +58,59 @@
 .strings {
   display: grid;
   margin: var(--space-16) 0 var(--space-8);
-  gap: var(--space-6);
 }
 
-.strings span {
+.strings span,
+.string {
+  position: relative;
   inline-size: 100%;
-  background: var(--color-teardrop);
+  min-block-size: var(--touch-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
-.strings span:nth-child(1) {
+.strings span::before,
+.string::before {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline: 0;
+  background: var(--color-teardrop);
+  content: '';
+  transform: translateY(-50%);
+}
+
+.string {
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.strings :is(span, .string):nth-child(1)::before {
   block-size: var(--string-width-1);
 }
 
-.strings span:nth-child(2) {
+.strings :is(span, .string):nth-child(2)::before {
   block-size: var(--string-width-2);
 }
 
-.strings span:nth-child(3) {
+.strings :is(span, .string):nth-child(3)::before {
   block-size: var(--string-width-3);
 }
 
-.strings span:nth-child(4) {
+.strings :is(span, .string):nth-child(4)::before {
   block-size: var(--string-width-4);
 }
 
-.strings span:nth-child(5) {
+.strings :is(span, .string):nth-child(5)::before {
   block-size: var(--string-width-5);
 }
 
-.strings span:nth-child(6) {
+.strings :is(span, .string):nth-child(6)::before {
   block-size: var(--string-width-6);
+}
+
+.string:focus-visible {
+  outline-offset: 0;
 }
 
 .stack {
