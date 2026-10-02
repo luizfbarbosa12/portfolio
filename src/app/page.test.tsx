@@ -9,5 +9,7 @@ describe('Home', () => {
 
     expect(screen.getByRole('main')).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1, name: 'Luiz Barbosa' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: '[Project title]' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: "Let's talk" })).toBeInTheDocument();
   });
 });
